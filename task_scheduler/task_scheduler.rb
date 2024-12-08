@@ -25,7 +25,12 @@ scheduler = TaskScheduler.new
 scheduler.add_task(1, "Complete linked list project", "High", "2024-12-15", "Pending")
 scheduler.add_task(2, "Review lectures", "Medium", "2024-12-20", "Pending")
 scheduler.add_task(3, "Prepare presentation", "Low", "2024-12-25", "Pending")
+scheduler.add_task(4, "Do pilates", "Medium", "2024-12-06", "Completed")
+scheduler.add_task(5, "Practice DSA", "High", "2024-12-06", "Completed")
 scheduler.show_tasks
-removed_task = scheduler.remove_task(1)
-puts "Deleted task: #{removed_task.id} - #{removed_task.name}"
+removed_task = scheduler.remove_task(3)
+puts "Deleted task: #{removed_task.name}"
 scheduler.show_tasks
+
+# homework: fix code and print the correct removed node's pointer
+# update delete method

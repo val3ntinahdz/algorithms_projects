@@ -31,25 +31,6 @@ class LinkedList
   end
 
   def delete(position)
-  # Parameters:
-  # position: Index of the node to delete (1-based).
-  # target_id: (Optional) ID to match for deletion.
-  # Steps:
-  # Handle an empty list:
-
-  # Return early if @head.nil?.
-  # Handle deletion of the head:
-
-  # If position == 1, update @head to @head.next and return.
-  # Traverse the list:
-
-  # Use a loop to find the node at the given position or matching target_id.
-  # Delete the node:
-
-  # Update the next pointer of the prev node to skip the current node.
-  # Handle out-of-bounds position:
-
-  # If the loop completes without finding the target, print a message or handle gracefully.
     return unless @head
 
     if position == 1
@@ -59,7 +40,7 @@ class LinkedList
 
     current = @head
     prev = nil
-    counter = 0
+    counter = 1
 
     # Traverse the list to find the position
     while current && counter < position
@@ -73,5 +54,27 @@ class LinkedList
     else
       puts "The position #{position} is out of bounds!"
     end
+  end
+
+  def delete_by_attribute(target_id)
+    return unless @head
+
+    current = @head
+    prev = nil
+
+    # Find equality between current and target _id
+    while current.id == target_id
+       # Delete the head if current == @ head
+      if current == @head
+        @head = @head.next
+      else
+        prev.next = current.next # Otherwhise, set prev's next pointer to current's next pointer
+      end
+      return current # Node deleted
+    end
+
+    # Update pointers
+    prev = current
+    current = current.next
   end
 end
