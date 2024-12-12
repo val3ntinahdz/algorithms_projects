@@ -30,51 +30,29 @@ class LinkedList
     end
   end
 
-  def delete(position)
+  def delete(id)
+    # steps to delete a task by a given ID
+    # 1. check if head exists, if so, return nil
     return unless @head
 
-    if position == 1
-      @head = @head.next
+    if @head.id == id
       return @head
     end
 
     current = @head
     prev = nil
-    counter = 1
 
-    # Traverse the list to find the position
-    while current && counter < position
+    while current && current.id != id
       prev = current
       current = current.next
-      counter += 1
     end
 
-    if current # Now the position is valid
-      prev.next = current.next
+    if current # if current exists?
+      removed_task = current # save the node to delete
+      prev.next = current.next # skip the node in the list
+      return removed_task
     else
-      puts "The position #{position} is out of bounds!"
+      puts "task with ID #{id} doesn't exist!"
     end
-  end
-
-  def delete_by_attribute(target_id)
-    return unless @head
-
-    current = @head
-    prev = nil
-
-    # Find equality between current and target _id
-    while current.id == target_id
-       # Delete the head if current == @ head
-      if current == @head
-        @head = @head.next
-      else
-        prev.next = current.next # Otherwhise, set prev's next pointer to current's next pointer
-      end
-      return current # Node deleted
-    end
-
-    # Update pointers
-    prev = current
-    current = current.next
   end
 end

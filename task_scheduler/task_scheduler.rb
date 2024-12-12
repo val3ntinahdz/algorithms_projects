@@ -15,7 +15,7 @@ class TaskScheduler
     @tasks.display
   end
 
-  def remove_task(id)
+  def delete_task(id)
     @tasks.delete(id)
   end
 end
@@ -28,8 +28,7 @@ scheduler.add_task(3, "Prepare presentation", "Low", "2024-12-25", "Pending")
 scheduler.add_task(4, "Do pilates", "Medium", "2024-12-06", "Completed")
 scheduler.add_task(5, "Practice DSA", "High", "2024-12-06", "Completed")
 scheduler.show_tasks
-removed_task = scheduler.remove_task(3)
-puts "Deleted task: #{removed_task.name}"
+puts "Deleted task: #{scheduler.delete_task(4).name}"
 scheduler.show_tasks
 
 # homework: fix code and print the correct removed node's pointer
