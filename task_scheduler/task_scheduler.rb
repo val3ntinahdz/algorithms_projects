@@ -28,5 +28,6 @@ scheduler.add_task(3, "Prepare presentation", "Low", "2024-12-25", "Pending")
 scheduler.add_task(4, "Do pilates", "Medium", "2024-12-06", "Completed")
 scheduler.add_task(5, "Practice DSA", "High", "2024-12-06", "Completed")
 scheduler.show_tasks
-puts "Deleted task: #{scheduler.delete_task(4).name}"
+removed_task = scheduler.delete_task(5)
+puts "Deleted task: #{removed_task.id} - #{removed_task.name}"
 scheduler.show_tasks
