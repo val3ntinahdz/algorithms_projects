@@ -30,6 +30,3 @@ scheduler.add_task(5, "Practice DSA", "High", "2024-12-06", "Completed")
 scheduler.show_tasks
 puts "Deleted task: #{scheduler.delete_task(4).name}"
 scheduler.show_tasks
-
-# homework: fix code and print the correct removed node's pointer
-# update delete method
