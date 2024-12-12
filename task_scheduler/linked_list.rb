@@ -55,4 +55,13 @@ class LinkedList
       puts "task with ID #{id} doesn't exist!"
     end
   end
+
+  # to do:
+  # let user update tasks by property
+  # build a UI (a simple CLI) to add, update, remove, and display tasks interactively.
+  # implement recurring tasks (e.g., daily, weekly, monthly). Store the recurrence details and generate instances dynamically.
+  # add a search feature to find tasks by keywords in their name or status.
+
+  # def update_task(property)
+  # end
 end
