@@ -56,6 +56,15 @@ class LinkedList
     end
   end
 
+  def update_task(property)
+    # get task id 
+    task = @task.id
+    #
+  end
+
+  def search_tasks
+  end
+
   # to do:
   # let user update tasks by property
   # build a UI (a simple CLI) to add, update, remove, and display tasks interactively.
