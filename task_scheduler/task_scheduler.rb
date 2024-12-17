@@ -20,7 +20,7 @@ class TaskScheduler
   end
 
   def update(id, updates={})
-    @tasks.update_task(id, updates)
+    @tasks.get_update(id, updates)
   end
 end
 
@@ -39,7 +39,7 @@ puts "Before updates:"
 scheduler.show_tasks
 
 # Update task
-scheduler.update(2, { priority: "High", status: "Completed", name: "Review lecture notes" })
+scheduler.update(2, { priority: "High", status: "Completed", name: "Code Algorithms" })
 
 # Show tasks after update
 puts "After updates:"

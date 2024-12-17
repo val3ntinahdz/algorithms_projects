@@ -56,30 +56,20 @@ class LinkedList
     end
   end
 
-  def get_task(id)
-    current = @head
-    # while current is not nil
-    while current 
-      return current if current.id == id 
-      current = current.next 
+  def get_update(id, updates={})
+    # start at @head 
+    current = @head 
+
+    while current
+      if current.id == id # check if the current node's id matches
+        updates.each do |key, value|
+          current.send("#{key}=", value) if current.respond_to?("#{key}=")
+        end 
+        return current # stop the loop and return the updated node 
+      end 
+      current = current.next # move to the next node 
     end 
-    nil # return nil in case no task with the given Id is found
-  end
-
-  def update_task(id, updates={}) # https://stackoverflow.com/questions/3337285/what-does-send-do-in-ruby
-    task = get_task(id)
-
-    updates.each do |key, value|
-      task.send("#{key}=", value) if task.respond_to?("#{key}=") # https://stackoverflow.com/questions/6849722/confused-about-respond-to-vs-respond-to
-    end 
-  end
-
-  # to do:
-  # let user update tasks by property
-  # build a UI (a simple CLI) to add, update, remove, and display tasks interactively.
-  # implement recurring tasks (e.g., daily, weekly, monthly). Store the recurrence details and generate instances dynamically.
-  # add a search feature to find tasks by keywords in their name or status.
-
-  # def update_task(property)
-  # end
+    puts "No match found for Id #{id}" # if no match is found after the loop ends, print a msg
+    nil
+  end 
 end
