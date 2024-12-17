@@ -56,13 +56,22 @@ class LinkedList
     end
   end
 
-  def update_task(property)
-    # get task id 
-    task = @task.id
-    #
+  def get_task(id)
+    current = @head
+    # while current is not nil
+    while current 
+      return current if current.id == id 
+      current = current.next 
+    end 
+    nil # return nil in case no task with the given Id is found
   end
 
-  def search_tasks
+  def update_task(id, updates={}) # https://stackoverflow.com/questions/3337285/what-does-send-do-in-ruby
+    task = get_task(id)
+
+    updates.each do |key, value|
+      task.send("#{key}=", value) if task.respond_to?("#{key}=") # https://stackoverflow.com/questions/6849722/confused-about-respond-to-vs-respond-to
+    end 
   end
 
   # to do:

@@ -18,6 +18,10 @@ class TaskScheduler
   def delete_task(id)
     @tasks.delete(id)
   end
+
+  def update(id, updates={})
+    @tasks.update_task(id, updates)
+  end
 end
 
 # tests
@@ -31,3 +35,13 @@ scheduler.show_tasks
 removed_task = scheduler.delete_task(5)
 puts "Deleted task: #{removed_task.id} - #{removed_task.name}"
 scheduler.show_tasks
+puts "Before updates:"
+scheduler.show_tasks
+
+# Update task
+scheduler.update(2, { priority: "High", status: "Completed", name: "Review lecture notes" })
+
+# Show tasks after update
+puts "After updates:"
+scheduler.show_tasks
+
