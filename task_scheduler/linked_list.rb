@@ -72,8 +72,4 @@ class LinkedList
     puts "No match found for Id #{id}" # if no match is found after the loop ends, print a msg
     nil
   end 
-
-  # build a UI (a simple CLI) to add, update, remove, and display tasks interactively.
-  # implement recurring tasks (e.g., daily, weekly, monthly). Store the recurrence details and generate instances dynamically.
-  # add a search feature to find tasks by keywords in their name or status.
 end
