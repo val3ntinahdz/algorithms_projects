@@ -56,9 +56,8 @@ class LinkedList
     end
   end
 
-  def get_update(id, updates={})
-    # start at @head 
-    current = @head 
+  def get_update(id, updates={}) 
+    current = @head # start at @head
 
     while current
       if current.id == id # check if the current node's id matches

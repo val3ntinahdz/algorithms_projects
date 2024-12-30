@@ -46,7 +46,7 @@ class Router
             due_date = gets.chomp
             print "Enter Status (Pending/Completed): "
             status = gets.chomp
-            @task_scheduler.add_task(id, name, priority, due_date, status)
+            new_task = @task_scheduler.add_task(id, name, priority, due_date, status)
             puts "Task added successfully!"
         when 2 
             print "Enter Task ID to update:"
@@ -69,8 +69,8 @@ class Router
             # @task_scheduler.update
         when 3
             print "Enter Task ID to remove:"
-            id = gets.chomp.to_i
-            @task_scheduler.delete_task(id)
+            task = gets.chomp.to_i
+            @task_scheduler.delete_task(task)
             puts "Task removed succesfully!"
         when 4 
             if @task_scheduler.tasks.head.nil?
