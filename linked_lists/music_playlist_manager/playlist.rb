@@ -69,5 +69,12 @@ class Playlist
     end
 
     def display
+        # code to display all the songs
+        current = @head 
+        puts "Playlist:"
+        while current 
+            puts "#{current.title} by #{current.artist} - #{current.duration}"
+            current = current.next
+        end
     end
 end
