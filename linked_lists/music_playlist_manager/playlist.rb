@@ -26,6 +26,27 @@ class Playlist
     end
 
     def remove_song(title)
+        # Remove song by title 
+        current = @head 
+        # 1. handle cases when current is head or tail
+        while current 
+            if current.title == title
+                if current == @head 
+                    @head = current.next 
+                    @head.prev = nil if @head
+                elsif current == @tail 
+                    @tail = current.prev 
+                    @tail.next = nil if @tail
+                else 
+                    current.prev.next = current.next 
+                    current.next.prev = current.prev
+                end
+                puts "Song '#{title}' removed from the playlist"
+                return
+            end
+            current = current.next
+        end
+        puts "Song '#{title}' not found!"
     end 
 
     def play_next
