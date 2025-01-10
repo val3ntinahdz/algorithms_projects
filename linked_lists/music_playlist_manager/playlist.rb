@@ -50,9 +50,22 @@ class Playlist
     end 
 
     def play_next
+        if @current_song && @current_song.next # Checks the existence of the current song to access its next node and play it. 
+            @current_song = @current_song.next 
+            puts "Now playing '#{@current_song.title}' by #{@current_song.artist}"
+        else 
+            puts "End of the playlist! No more songs to play!"
+        end
     end
 
+
     def play_previous
+        if @current_song && @current_song.prev
+            @current_song = @current_song.prev
+            puts "Now playing '#{@current_song.title}' by #{@current_song.artist}"
+        else 
+            puts "End of the playlist. No more songs to play!"
+        end
     end
 
     def display
