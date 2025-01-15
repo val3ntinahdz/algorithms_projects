@@ -73,7 +73,7 @@ class Playlist
         current = @head 
         puts "Playlist:"
         while current 
-            puts "#{current.title} by #{current.artist} - #{current.duration}"
+            puts " #{current.title} by #{current.artist} - #{current.duration}"
             current = current.next
         end
     end
