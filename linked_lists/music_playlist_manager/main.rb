@@ -25,7 +25,8 @@ def main
     puts "3. Play Next"
     puts "4. Play Previous"
     puts "5. View Playlist"
-    puts "6. Exit"
+    puts "6. Reverse playlist"
+    puts "7. Exit"
 
     print "Enter your choice: "
     choice = gets.chomp
@@ -50,8 +51,10 @@ def main
     when '5'
         playlist.display
     when '6'
-        puts 'goooodbye buddy'
-        break 
+        playlist.reverse_playlist
+    when '7'
+        puts 'goodbye budddyy'
+        break
     else 
         puts 'Invalid choice. Try again.'
     end

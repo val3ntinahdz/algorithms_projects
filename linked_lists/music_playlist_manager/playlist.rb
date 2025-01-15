@@ -77,4 +77,16 @@ class Playlist
             current = current.next
         end
     end
+
+    def reverse_playlist
+        # Pseudocode 
+        # Traverse the playlist backward starting from the tail and print the songs.
+        current = @tail
+        # Use this to understand how .prev works in a doubly linked list.
+        # 1. check if tail exists before traversing playlist backward
+        while current
+            puts "#{current.title} by #{current.artist} - #{current.duration}"
+            current = current.prev 
+        end
+    end 
 end
