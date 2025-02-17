@@ -43,10 +43,10 @@ class TextEditor {
         if (!this.historyStack) return; // if history stack is empty, do nothing!
 
         const lastState = this.historyStack.data;
-        const historyStack = this.historyStack.next // pop the last state
+        this.historyStack = this.historyStack.next; // pop the last state
 
         // push the last state onto de undoStack
-        const newNode = new Node(this.lastState)
+        const newNode = new Node(lastState)
         newNode.next = this.undoStack;
         this.undoStack = newNode;
 
@@ -62,7 +62,7 @@ class TextEditor {
 
     display() {
         // show the current state of the text
-        return "current text: " + this.text;
+        return "current text:" + this.text;
     }
 
 }
