@@ -55,9 +55,16 @@ class TextEditor {
 
     redo() {  
         // Pop the last state from the undo_stack and push it back onto the history_stack.
+        if (!this.undoStack) return;
 
-        // Display the restored state of the text.
+        const lastUndoState = this.undoStack.data;
+        this.undoStack = this.undoStack.next;
 
+        const newNode = new Node(lastUndoState);
+        newNode.next = this.historyStack;
+        this.historyStack = newNode;
+
+        this.text = lastUndoState;
     }
 
     display() {
