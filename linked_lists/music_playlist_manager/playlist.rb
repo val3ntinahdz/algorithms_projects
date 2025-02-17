@@ -23,6 +23,7 @@ class Playlist
             @tail = song 
         end 
         puts "Song '#{title}' added to the playlist!"
+        # order songs by alphabetical order 
     end
 
     def remove_song(title)
@@ -70,14 +71,45 @@ class Playlist
 
     def display
         # code to display all the songs
-        current = @head 
+        current = @head
         puts "Playlist:"
         while current 
-            puts " #{current.title} by #{current.artist} - #{current.duration}"
+            puts " #{current.title.} by #{current.artist} - #{current.duration}"
             current = current.next
         end
+
     end
 
+    def order_songs
+        # 1. locate the object = LinkedLIst (Playlist object)
+        # 2. traverse the list starting from head
+        current = @head 
+        # 3. figure out how to access the nodes (representing the songs)
+        song_names = []
+        while current
+            if current
+                song_names << current.title
+                current = current.next
+            end
+        end
+        return @head
+
+        return song_names.sort
+
+        song_names[0] = @head
+        @prev = nil 
+        @next = nil
+
+        i = 1
+
+        song_names.range(i...n-1).each do |song|
+            @new_node = Song.new(song)
+            @new_node.next = song_names[0]
+        end 
+
+        # 4. convert the linked list into an array to utilize the method .sort()
+    end
+    
     def reverse_playlist
         # Pseudocode 
         # Traverse the playlist backward starting from the tail and print the songs.
@@ -88,5 +120,23 @@ class Playlist
             puts "#{current.title} by #{current.artist} - #{current.duration}"
             current = current.prev 
         end
-    end 
+    end
+
+    # Add Songs in Alphabetical Order
+
+    # def order_songs 
+    #     # order songs in alphabetical order
+
+    # end 
+    
+
+    # def count_total
+    #     # Display the number of songs in the playlist
+    # end 
+
+    # Modify the add_song method so songs are inserted in the correct position based on their title.
+    # Count the Total Songs
+
+    # Create a method to count and display the number of songs in the playlist.
+
 end
