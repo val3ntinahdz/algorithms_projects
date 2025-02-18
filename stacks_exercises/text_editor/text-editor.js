@@ -7,17 +7,13 @@ class Node {
 
 class TextEditor {
     // You will create a simple text editor that allows users to:
-
     // Type text.
-
     // Undo their last action (e.g., delete the last character or word).
-
     // Redo the last undone action.
-
     // How Stacks Come into Play:
     // Use one stack to keep track of changes (e.g., characters or words added/deleted).
-
     // Use another stack to keep track of undone actions for redo functionality.
+    
     constructor() {
         this.historyStack = null;
         this.undoStack = null;
